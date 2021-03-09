@@ -68,7 +68,7 @@ model = lgb.LGBMClassifier(n_jobs=-1,
                             metric='auc',
                             **best_pars )
 
-model.fit(X_train, y_train) # Foi treinado esse carai!!
+model.fit(X_train, y_train)
 
 
 y_pred_train = model.predict_proba(X_train)
@@ -91,8 +91,8 @@ sns.distplot(y_pred_test[:,1])
 plt.grid()
 plt.show()
 
-#Lift: se pegassemos 20% das pessoas com maior probabilidade de churn, acertaríamos 3.2 vezes mais se pegássemos uma amostra aleatória
-# precisao dividido pela precisao global
+#Lift: if we took 20% of people with largest probability of vhurn, we would guess 3.2 times more than if we took a random sample
+#precision of model / global precision
 skplt.metrics.plot_lift_curve(y_test, y_pred_test)
 plt.grid()
 plt.show()
